@@ -12,9 +12,11 @@
 	<%!
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		DateTimeFormatter formatterWithoutMonth = DateTimeFormatter.ofPattern("dd/MM");
+		
 		public ArrayList<LocalDate> datasPosteriores(){
 			LocalDate dataHoje = LocalDate.now();
 			ArrayList<LocalDate> datas = new ArrayList<LocalDate>();
+			
 			for(Integer i = 1; i <= 45; i++){
 				datas.add(dataHoje.plusDays(i));
 			}
@@ -26,8 +28,9 @@
 		<tr>
 			<%
 				for(LocalDate data : datasPosteriores()){
-					if(data.getDayOfMonth() % 2 == 0)
-					out.print("<td>" + data.format(formatter) + "</td>");
+					if(data.getDayOfMonth() % 2 == 0){
+						out.print("<td>" + data.format(formatter) + "</td>");
+					}
 				}
 			%>
 		</tr>
@@ -37,8 +40,9 @@
 		<tr>
 			<%
 				for(LocalDate data : datasPosteriores()){
-					if(data.getDayOfMonth() % 2 != 0)
-					out.print("<td>" + data.format(formatterWithoutMonth) + "</td>");
+					if(data.getDayOfMonth() % 2 != 0){
+						out.print("<td>" + data.format(formatterWithoutMonth) + "</td>");
+					}
 				}
 			%>
 		</tr>
