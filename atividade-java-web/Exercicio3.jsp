@@ -1,42 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Exercício 3</title>
+<meta charset="UTF-8">
+<title>ExercÃ­cio 3</title>
 </head>
 <body>
 	<%!
-		public Integer Vogais(String palavra){
-			Integer vogais = 0;
-			palavra.toLowerCase();
+		public Integer Vogais(String palavraAnalisada){
+			ArrayList<Character> arrayVogais = new ArrayList<>(List.of('a', 'e', 'i', 'o', 'u'));
+			Integer quantidadeVogais = 0;
+			palavraAnalisada.toLowerCase();
 			
-			for(Integer i = 0; i < palavra.length(); i++){
-				Character letra = palavra.charAt(i);
-				if(letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u'){
-					vogais++;
+			for(Integer i = 0; i < palavraAnalisada.length(); i++){
+				Character letraDaPalavra = palavraAnalisada.charAt(i);
+				if(arrayVogais.contains(letraDaPalavra)){
+					quantidadeVogais++;
 				}		
 			}
-			return vogais;
+			return quantidadeVogais;
 		}
 	
-		public Integer Consoantes(String palavra){
-			Integer consoantes = 0;
-			palavra.toLowerCase();
+		public Integer Consoantes(String palavraAnalisada){
+			ArrayList<Character> arrayConsoante = new ArrayList<>(List.of('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'));
+			Integer quantidadeConsoantes = 0;
 			
-			for(Integer i = 0; i < palavra.length(); i++){
-				Character letra = palavra.charAt(i);
-				if(letra != 'a' && letra != 'e' && letra != 'i' && letra != 'o' && letra != 'u' && letra != ' '){
-					consoantes++;
+			for(Integer i = 0; i < palavraAnalisada.length(); i++){
+				Character letraDaPalavra = palavraAnalisada.charAt(i);
+				if(arrayConsoante.contains(letraDaPalavra)){
+					quantidadeConsoantes++;
 				}		
 			}
-			return consoantes;
+			return quantidadeConsoantes;
 		}
 	%>
 	
 	<%
-		out.print("<h1>" + Vogais("RasenBallsport Leipzig") + "</h1>");
-		out.print("<h1>" + Consoantes("RasenBallsport Leipzig") + "</h1>");
+		out.print("<h1>" + "Quantidade de Vogais: " + Vogais("Bayern de Munique".toLowerCase()) + "</h1>");
+		out.print("<h1>" + "Quantidade de Consoantes: " + Consoantes("Bayern de Munique".toLowerCase()) + "</h1>");
 	%>
 </body>
 </html>

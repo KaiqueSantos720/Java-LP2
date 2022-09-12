@@ -1,38 +1,54 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Exercício 4</title>
+<meta charset="UTF-8">
+<title>ExercÃ­cio 4</title>
 </head>
 <body>
 	<%!
-		public Integer Inverter(Integer numero){
-			Boolean negativo = false;
+		public ArrayList<String> multiplicacoes(Integer numeroTabuada){
+			ArrayList<String> multiplicacao = new ArrayList<String>();
+			for(int i = 1; i < 11; i++){
+				multiplicacao.add(numeroTabuada + " X " + i + " = " + numeroTabuada * i);
+			}
+			return multiplicacao;
 			
-			if(numero < 0){
-				numero *= -1;
-				negativo = true;
-			}
-			
-			Integer numeroInverso = 0;
-			while(numero > 0){
-				numeroInverso *= 10;
-				numeroInverso += (numero % 10);
-				numero /= 10;
-			}
-			
-			if(negativo){
-				return numeroInverso * -1;
-			}
-			else{
-				return numeroInverso;
-			}
 		}
 	%>
 	
-	<%
-		out.print("<h1>" + Inverter(-1024) + "</h1>");
-	%>
+	<h1>Tabuada do 8</h1>
+	<table border="3">
+			<tr>
+				<%
+					for(String multiplicacao : multiplicacoes(8)){
+						out.print("<td>" + multiplicacao + "</td>");
+					}
+				%>
+			</tr>
+	</table>
+	
+	<h1>Tabuada do 10</h1>
+	<table border="3">
+			<tr>
+				<%
+					for(String multiplicacao : multiplicacoes(10)){
+						out.print("<td>" + multiplicacao + "</td>");
+					}
+				%>
+			</tr>
+	</table>
+	
+	<h1>Tabuada do 12</h1>
+	<table border="3">
+			<tr>
+				<%
+					for(String multiplicacao : multiplicacoes(12)){
+						out.print("<td>" + multiplicacao + "</td>");
+					}
+				%>
+			</tr>
+	</table>
 </body>
 </html>

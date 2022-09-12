@@ -1,40 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Exerc�cio 2</title>
+<meta charset="UTF-8">
+<title>Exercício 2</title>
 </head>
 <body>
 	<%!
-		public Integer Valores(ArrayList<Integer> array){
-			if(array.size() == 0){
+		public Integer somaNumeroMaiorMenor(ArrayList<Integer> arrayListInteger){
+			if(arrayListInteger.size() == 0){
 				return 0;
 			}
-			else if(array.size() == 1){
-				return array.get(0);
+			else if(arrayListInteger.size() == 1){
+				return arrayListInteger.get(0);
 			}
 			else{
-				Integer maiorValor = array.get(0);
-				Integer menorValor = array.get(0);
+				Integer maiorValorArray = arrayListInteger.get(0);
+				Integer menorValorArray = arrayListInteger.get(0);
 				
-				for(Integer numero : array){
-					if(numero > maiorValor){
-						maiorValor = numero;
+				for(Integer numero : arrayListInteger){
+					if(numero > maiorValorArray){
+						maiorValorArray = numero;
 					}
-					if(numero < menorValor){
-						menorValor = numero;
+					if(numero < menorValorArray){
+						menorValorArray = numero;
 					}
 				}
 				
-				return maiorValor + menorValor;
+				return maiorValorArray + menorValorArray;
 			}
 		}
 	%>
 	
 	<%
-		out.print("<h1>" + Valores(new ArrayList<Integer>(Arrays.asList(-10, 5, 9, 4, 2, 20, 8, 13))) + "</h1>");
+		out.print("<h1>" + "A soma do maior e menor número do vetor é: " + somaNumeroMaiorMenor(new ArrayList<Integer>(List.of(15, 5, 9))) + "</h1>");
 	%>
 </body>
 </html>
